@@ -14,7 +14,7 @@ Created by
 
 # DESIGN DOCUMENT
 APPENDIX
-1. [TITLE](#CAVE-GENERATOR-(working-title))
+1. [test](#test)
 2. 
 3. 
 4. 
@@ -118,6 +118,8 @@ fog of war array
 
 graphics array
  - ascii shit will list later
+
+ # test
 
 save the array to a file
  - parse array state and output data stream
