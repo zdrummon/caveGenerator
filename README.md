@@ -1,16 +1,29 @@
+# CAVE GENERATOR (working title)
 v0.0.01
----
 https://github.com/zdrummon/caveGenerator
 
-Created by 
-2021 Daikon Environments
 ---
-Trevor Haggerty - cesismalon@gmail.com
-Zachary Drummond - zdrummon@gmail.com
 
+Created by 
+### 2021 Daikon Environments
+
+| Trevor Haggerty | Zachary Drummond |
+| ------------- | ------------- |
+| cesismalon@gmail.com | zdrummon@gmail.com |  
 ---
-DESIGN DOCUMENT
----
+
+# DESIGN DOCUMENT
+APPENDIX
+1. [TITLE](#CAVE-GENERATOR-(working-title))
+2. 
+3. 
+4. 
+5. 
+6. 
+
+
+
+
 
 steps to generation
  -fill arrays with a uniform int (use the auto for, 0 for all defaults)
