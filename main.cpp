@@ -31,8 +31,14 @@ char graphicsArray[maxY][maxX];
 
 
 //function prototyping------------------
+
 void splashScreen();
-void fillArray(int (&arr), int, int)
+
+void fillArray(int [maxY][maxX], int);
+void fillArray(char [maxY][maxX], char);
+void fillArray(bool [maxY][maxX], bool);
+
+void printArray(int [maxY][maxX]);
 
 
 //main---------------------------------------------------------------
@@ -40,16 +46,19 @@ int main(){
   int result = 0;
   int tick = 0;
   int gameRunning = 1;
-  
-  //intro splash screen 
+
+  //intro splash screen
   splashScreen();
   //initialization
-  
+
   //loop so long as the game is running
-  while(gameRunning == 1){
-  
-  //itterate to measure the epochs of the gamestate
-  tick++;
+  while(gameRunning == 1) {
+
+    fillArray(biomeArray, 1);
+    printArray(biomeArray);
+    //itterate to measure the epochs of the gamestate
+    tick++;
+    gameRunning = 0;
   }
 
   //post loop to exit
@@ -64,3 +73,33 @@ void splashScreen(){
   cout<<"@--------------------------------------------@"<<endl;
 }
 
+void fillArray(int arr[maxY][maxX], int value) {
+
+  for(int j = 0; j < maxY; ++j)
+    for(int i = 0; i < maxX; ++i)
+      arr[j][i] = value;
+}
+
+void fillArray(char arr[maxY][maxX], char value) {
+
+  for(int j = 0; j < maxY; ++j)
+    for(int i = 0; i < maxX; ++i)
+      arr[j][i] = value;
+}
+
+void fillArray(bool arr[maxY][maxX], bool value) {
+
+  for(int j = 0; j < maxY; ++j)
+    for(int i = 0; i < maxX; ++i)
+      arr[j][i] = value;
+}
+
+void printArray(int arr[maxY][maxX]) {
+
+  for(int j = 0; j < maxY; ++j) {
+    for(int i = 0; i < maxX; ++i) {
+      cout << arr[j][i] << arr[j][i];
+    }
+    cout << endl;
+  }
+}
