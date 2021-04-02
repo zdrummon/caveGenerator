@@ -39,6 +39,9 @@ int lightingArray[maxY][maxX];
 int fogOfWarArray[maxY][maxX];
 char graphicsArray[maxY][maxX];
 
+
+
+
 //function prototyping------------------------------------------------
 
 void splashScreen();
@@ -50,6 +53,8 @@ void fillArray(bool [maxY][maxX], bool);
 
 //fill input array with values between the input values
 void randomizeArray(int  [maxY][maxX], int, int);
+
+//check neighbor values
 
 //printing functions
 void printArray(int [maxY][maxX]);
@@ -79,11 +84,13 @@ int main(){
   -validate the map and respond
   */
   
-  //
+  //fill the biome with random numbers
   cout<<"filling arrays"<<endl;
   randomizeArray(biomeArray, 0, 9);
   printArray(biomeArray);
   
+  //smooth biome array
+
   
   int roomCount = ( rand() % maxRoomCount ) + 1;
   cout << "There will be " << roomCount << " rooms" << endl;
