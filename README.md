@@ -14,7 +14,7 @@ Created by
 
 # DESIGN DOCUMENT
 APPENDIX
-1. [test](#test)
+1. [test](#buffer-array)
 2. 
 3. 
 4. 
@@ -40,7 +40,7 @@ steps to generation
 ARRAY KEYS
  - 0 - void
 
-buffer array
+#### buffer array
  - whatever you want, go crazy
 
 biome array
@@ -118,8 +118,6 @@ fog of war array
 
 graphics array
  - ascii shit will list later
-
- # test
 
 save the array to a file
  - parse array state and output data stream
