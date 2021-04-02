@@ -11,10 +11,9 @@
 > Paragraph explaining the game concept, something about sneaking
 
 #### APPENDIX
-1. [Order of generation](#generation-order)
-2. [Array debug keys](#buffer-array)
-
-[caveGenerator on Github](https://github.com/zdrummon/caveGenerator)
+[Design Document](designdoc.md#documentation)
+[Main Program](main.cpp)
 
 ---
-### copyright Daikon Environments 2021
+[caveGenerator page on Github](https://github.com/zdrummon/caveGenerator)
+copyright Daikon Environments 2021

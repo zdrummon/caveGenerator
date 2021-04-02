@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//variable declarations----------------------------------------------
+//constants declarations----------------------------------------------
 const string versionInfo = "0.0.01";
 
 //the dimensions of the arrays in total
@@ -19,8 +19,14 @@ const int maxRoomSize = 10;
 const int seedForRandom = 99;
 
 //structure that explains 2d locationality
-struct rooms{  int xloc, yloc, xsize, ysize;  };
-
+struct rooms {  
+  int xloc, yloc, xsize, ysize;
+};
+//structure that holds the values found from locations in check neighbors
+struct neighborResults{
+  int q, c, n, ne, e, se, s, sw, w, nw;
+};
+//declare arrays for later use
 int bufferArray[maxY][maxX];
 
 int biomeArray[maxY][maxX];
@@ -55,6 +61,9 @@ void fillArray(bool [maxY][maxX], bool);
 void randomizeArray(int  [maxY][maxX], int, int);
 
 //check neighbor values
+neighborResults checkNeighbor(int [maxY][maxX], int, int);
+void smoothPerlin(int [maxY][maxX]);
+
 
 //printing functions
 void printArray(int [maxY][maxX]);
@@ -86,12 +95,15 @@ int main(){
   
   //fill the biome with random numbers
   cout<<"filling arrays"<<endl;
-  randomizeArray(biomeArray, 0, 9);
+  randomizeArray(biomeArray, 1, 4);
   printArray(biomeArray);
-  
-  //smooth biome array
+  cout<<endl<<endl<<endl<<endl<<endl;
 
-  
+  //smooth biome array
+  smoothPerlin(biomeArray);
+  printArray(biomeArray);
+
+
   int roomCount = ( rand() % maxRoomCount ) + 1;
   cout << "There will be " << roomCount << " rooms" << endl;
 
@@ -157,7 +169,55 @@ void randomizeArray(int arr[maxY][maxX], int minValue, int maxValue) {
       arr[j][i] = ( rand() % (maxValue - minValue + 1) ) + minValue;
 }
 
+//checkNeighbor functions----------------------------
+neighborResults checkNeighbor(int arr[maxY][maxX], int xloc, int yloc){
+  neighborResults results;
+  int neighborCount = 1;
+  results.c = arr[yloc][xloc];
+  
+  yloc > 0 ? results.n = arr[yloc - 1][xloc], neighborCount++: results.n = 0;
 
+  (( xloc < maxX - 1 ) && ( yloc > 0 )) ? results.ne = arr[yloc - 1][xloc + 1], neighborCount++: results.ne = 0;
+
+  xloc < maxX - 1 ? results.e = arr[yloc][xloc + 1], neighborCount++ : results.e = 0;
+
+  (( xloc < maxX - 1 ) && ( yloc < maxY - 1 )) ? results.se = arr[yloc + 1][xloc + 1], neighborCount++ : results.se = 0;
+
+  yloc < maxY - 1 ? results.s = arr[yloc + 1][xloc], neighborCount++ : results.s = 0;
+
+  (( xloc > 0 ) && ( yloc < maxY - 1 )) ? results.sw = arr[yloc + 1][xloc - 1], neighborCount++ : results.sw = 0;
+
+  xloc > 0 ? results.w = arr[yloc][xloc - 1], neighborCount++ : results.w = 0;
+
+  (( xloc > 0 ) && ( yloc > 0 )) ? results.nw = arr[yloc - 1][xloc - 1], neighborCount++ : results.nw = 0;
+
+  
+  results.q = neighborCount;
+  return results;
+}
+//
+
+void smoothPerlin(int arr[maxY][maxX]){
+  neighborResults nCursor;
+  int accumulator;
+  for(int j = 0; j < maxY; j++){
+    accumulator = 0;
+    for(int i = 0; i < maxX; i++){
+      nCursor = checkNeighbor(arr,i,j); 
+      accumulator = (nCursor.c + nCursor.n +
+                    nCursor.ne + nCursor.e +
+                    nCursor.se + nCursor.s +
+                    nCursor.sw + nCursor.w +
+                    nCursor.nw) / nCursor.q;
+      bufferArray[j][i] = accumulator; 
+    }
+  }
+  for(int j = 0; j < maxY; j++){
+    for(int i = 0; i < maxX; i++){ 
+      arr[j][i] = bufferArray[j][i]; 
+    }
+  }
+}
 //printing functions----------------------------
 void printArray(int arr[maxY][maxX]) {
 
