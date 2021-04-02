@@ -29,9 +29,8 @@ int main(){
   return result;
 }
 
-
 void splashScreen(){
-  cout<<"x";
+  cout<<"";
   cout<<"Welcome to the Cave Generator Game v"<<versionInfo<<endl;
 
   
