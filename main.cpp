@@ -31,7 +31,7 @@ int main(){
 
 
 void splashScreen(){
-  cout<<"x" * 5<<;
+  cout<<"x";
   cout<<"Welcome to the Cave Generator Game v"<<versionInfo<<endl;
 
   
