@@ -1,11 +1,12 @@
 #include <iostream>
+#include <string>
 #include <iomanip>
 #include <cstdlib>
 
 using namespace std;
 
 //constants declarations----------------------------------------------
-const string versionInfo = "0.0.01";
+const string versionInfo = "0.0.02";
 
 //the dimensions of the arrays in total
 const int maxY = 32;
@@ -18,15 +19,20 @@ const int maxRoomSize = 10;
 //seed of the random number generator
 const int seedForRandom = 99;
 
+//string used for lighting and screen printing
+const string grayScale = "$@B%8&WM#oawmZOYXCUzvunx1!I:+.- ";
+
 //structure that explains 2d locationality
 struct rooms {  
   int xloc, yloc, xsize, ysize;
 };
+
 //structure that holds the values found from locations in check neighbors
 struct neighborResults{
   int q, c, n, ne, e, se, s, sw, w, nw;
 };
-//declare arrays for later use
+
+//arrays-------------------------------------------------------------
 int bufferArray[maxY][maxX];
 
 int biomeArray[maxY][maxX];
@@ -49,7 +55,6 @@ char graphicsArray[maxY][maxX];
 
 
 //function prototyping------------------------------------------------
-
 void splashScreen();
 
 //fill input array with input value
@@ -62,6 +67,8 @@ void randomizeArray(int  [maxY][maxX], int, int);
 
 //check neighbor values
 neighborResults checkNeighbor(int [maxY][maxX], int, int);
+
+//smooths arrays
 void smoothPerlin(int [maxY][maxX]);
 
 
@@ -69,9 +76,12 @@ void smoothPerlin(int [maxY][maxX]);
 void printArray(int [maxY][maxX]);
 void printArray(char [maxY][maxX]);
 
+void printArraySpecial(int [maxY][maxX]);
 
 
-//main---------------------------------------------------------------
+
+
+//main-------------------------------------------------------------------------------------------
 int main(){
   srand (seedForRandom);
   int result = 0;
@@ -81,28 +91,16 @@ int main(){
   //intro splash screen
   splashScreen();
   //initialization
-  /*
-  -fill arrays with a uniform int (use the auto for, 0 for all defaults)
-  -define room count
-  -difine room dimensions
-  -define room locations
-  -define tunnels
-  -difine structured tiles (exempt from smoothing)
-  -"smoothing" algorithms
-  -define doorways
-  -validate the map and respond
-  */
-  
+
   //fill the biome with random numbers
   cout<<"filling arrays"<<endl;
-  randomizeArray(biomeArray, 1, 4);
-  printArray(biomeArray);
+  randomizeArray(biomeArray, 1, 3);
+  printArraySpecial(biomeArray);
   cout<<endl<<endl<<endl<<endl<<endl;
 
   //smooth biome array
   smoothPerlin(biomeArray);
-  printArray(biomeArray);
-
+  printArraySpecial(biomeArray);
 
   int roomCount = ( rand() % maxRoomCount ) + 1;
   cout << "There will be " << roomCount << " rooms" << endl;
@@ -132,7 +130,7 @@ int main(){
   return result;
 }
 
-//function definitions ------------------------------------------------
+//function definitions -----------------------------------------------------------------------------
 void splashScreen(){
   cout<<"@--------------------------------------------@"<<endl;
   cout<<"| Welcome to the Cave Generator Game v"<<versionInfo<<" |"<<endl;
@@ -161,7 +159,18 @@ void fillArray(bool arr[maxY][maxX], bool value) {
     for(int i = 0; i < maxX; ++i)
       arr[j][i] = value;
 }
-//randomize array functions --------------------
+//copy one array to another
+void arrayCopyTo(int arr[maxY][maxX], int arrTwo[maxY][maxX]){
+  for(int j = 0; j < maxY; j++){
+    for(int i = 0; i < maxX; i++){ 
+      arrTwo[j][i] = arr[j][i]; 
+    }
+  }
+}
+
+
+
+//randomize array functions --------------------------------------------------------------------------------------
 void randomizeArray(int arr[maxY][maxX], int minValue, int maxValue) {
 
   for(int j = 0; j < maxY; ++j)
@@ -169,7 +178,7 @@ void randomizeArray(int arr[maxY][maxX], int minValue, int maxValue) {
       arr[j][i] = ( rand() % (maxValue - minValue + 1) ) + minValue;
 }
 
-//checkNeighbor functions----------------------------
+//checkNeighbor functions------------------------------------------------------------------------------------------
 neighborResults checkNeighbor(int arr[maxY][maxX], int xloc, int yloc){
   neighborResults results;
   int neighborCount = 1;
@@ -195,8 +204,9 @@ neighborResults checkNeighbor(int arr[maxY][maxX], int xloc, int yloc){
   results.q = neighborCount;
   return results;
 }
-//
 
+
+//smoothing algorithms
 void smoothPerlin(int arr[maxY][maxX]){
   neighborResults nCursor;
   int accumulator;
@@ -212,12 +222,10 @@ void smoothPerlin(int arr[maxY][maxX]){
       bufferArray[j][i] = accumulator; 
     }
   }
-  for(int j = 0; j < maxY; j++){
-    for(int i = 0; i < maxX; i++){ 
-      arr[j][i] = bufferArray[j][i]; 
-    }
-  }
+  arrayCopyTo(bufferArray,arr);
 }
+
+
 //printing functions----------------------------
 void printArray(int arr[maxY][maxX]) {
 
@@ -238,4 +246,17 @@ void printArray(char arr[maxY][maxX]) {
     cout << endl;
   }
 }
+
+//print special like and such
+
+void printArraySpecial(int arr[maxY][maxX]) {
+
+  for(int j = 0; j < maxY; ++j) {
+    for(int i = 0; i < maxX; ++i) {
+      cout << grayScale[arr[j][i]] << grayScale[arr[j][i]];
+    }
+    cout << endl;
+  }
+}
+
 
