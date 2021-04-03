@@ -35,6 +35,7 @@ value | meaning
 2 | b
 3 | c
 4 | d
+
 [return to appendix](#appendix)
 
 ---
@@ -54,6 +55,7 @@ value | meaning
 4 | crawlable
 5 | climbable
 6 | swimmable
+
 [return to appendix](#appendix)
 
 ---
@@ -71,6 +73,7 @@ value | meaning
 9 | clay
 10 | water
 11 | wood
+
 [return to appendix](#appendix)
 
 ---
@@ -81,6 +84,7 @@ value | meaning
 2 | semi-transparent
 3 | transparent
 4 | reflective
+
 [return to appendix](#appendix)
 
 ---
@@ -92,6 +96,7 @@ value | meaning
 3 | light
 4 | bright
 5 | blinding
+
 [return to appendix](#appendix)
 
 ---
@@ -109,6 +114,7 @@ value | meaning
 9 | rope
 10 | clock
 11 | map
+
 [return to appendix](#appendix)
 
 ---
@@ -122,6 +128,7 @@ value | meaning
 [4]|bait
 [5]|rope
 [6]|map
+
 [return to appendix](#appendix)
 
 ---
@@ -133,6 +140,7 @@ value | meaning
 3 | remembered
 4 | partially remembered
 5 | forgotten
+
 [return to appendix](#appendix)
 
 ---
