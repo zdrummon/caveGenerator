@@ -144,6 +144,36 @@ value | meaning
 [return to appendix](#appendix)
 
 ---
+### graphics output ascii array key
+value | meaning
+|-----------|-----------|
+†☻ | player
+☹► | badman
+██ | visible wall
+▓▓ | remembered wall
+▒▒ | visible floor
+░░ | remembered floor
+≋≋ | water
+⛶⛶ | cloud
+▦▦ | boxes
+⚿⚿ | locked door
+⌸⌸ | closed door
+⍠⍠ | open door
+▛▜ | tunnel
+▅▅ | ledge
+⍾⍾ | mushroom patch
+⚶⚶ | plants
+⌼█ | mirror
+⍜█ | clock
+⚷▒ | key 
+⛹▒ | trophy
+†▒ | sword
+⛨▒ | bait
+☸▒ | map
+
+[return to appendix](#appendix)
+
+---
 
 # disordered documentation
 
@@ -190,3 +220,31 @@ load that array from file
 game loop
   -objectives
   -adventure!
+
+unordered unicode:
+Δ   Λ   ∎   ⊕   ⊖   ⊗   ⊘   ⊙   ⊚   ⊛   ⊜   ⊝   ⊞   ⊟   ⊠   ⊡
+⊢ 	⊣ 	⊤ 	⊥ 	⊦ 	⊧ 	⊨ 	⊩ 	⊪ 	⊫ 	⊬ 	⊭ 	⊮ 	⊯ ★ 	☆
+∣ 	∤ 	∥ 	∦   ≏   ⋈   ⌧ ⁂ †   	•  	‡  	‗ ₪ ₾ ⇱ ⇲ ☠  	☢
+⌲ 	⌳ 	⌴ 	⌵ 	⌶ 	⌷ 	⌸ 	⌹ 	⌺ 	⌻ 	⌼ 	⌽ 	⌾ 	⌿ ☀
+⍀ 	⍁ 	⍂ 	⍃ 	⍄ 	⍅ 	⍆ 	⍇ 	⍈ 	⍉ 	⍊ 	⍋ 	⍌ 	⍍ 	⍎ 	⍏
+⍐ 	⍑ 	⍒ 	⍓ 	⍔ 	⍕ 	⍖ 	⍗ 	⍘ 	⍙ 	⍚ 	⍛ 	⍜ 	⍝ 	⍞ 	⍟
+⍠ 	⍡ 	⍢ 	⍣ 	⍤ 	⍥ 	⍦ 	⍧ 	⍨ 	⍩ 	⍪ 	⍫ 	⍬ 	⍭ 	⍮ 	⍯
+☼ 	☽ 	☾   ☸ 	☹ 	☺ 	☻   ⛹ ⛨ ⚿ ⛶ ⛭ 	⛮ 	⛯
+
+━ 	┃  	┅ 	┇ 	┉ 	┋ 	┏   ┓ 	┗ 	┛ 	┣ 	┫ 	┳ 	┻ 	╋ 	╍ 	╏   ╭ 	╮ 	╯   ╰  	╳ 	╹ 	╺ 	╻
+═ 	║ 	╒ 	╓ 	╔ 	╕ 	╖ 	╗ 	╘ 	╙ 	╚ 	╛ 	╜ 	╝ 	╞ 	╟
+╠ 	╡ 	╢ 	╣ 	╤ 	╥ 	╦ 	╧ 	╨ 	╩ 	╪ 	╫ 	╬ 	
+
+﹏
+╭━━━━━╮ 
+┃-----┃
+┃-----┃
+┃-----┃
+╰━━━━━╯
+
+
+▀ 	▁ 	▂ 	▃ 	▄ 	▅ 	▆ 	▇ 	█ 	▉ 	▊ 	▋ 	▌ 	▍ 	▎ 	▏
+▐ 	░ 	▒ 	▓ 	▔ 	▕ 	▖ 	▗ 	▘ 	▙ 	▚ 	▛ 	▜ 	▝ 	▞ 	▟ 
+■   □   ▢   ▣   ▤   ▥   ▦  	▧ ▨ ▩ 	▪  	▫ ▬ ▭  	▮ ▯ ▰ ▱ 
+ 	▲ △ ▴ ▵  	▶ ▷ ▸ ▹ ► ▻ ▼ ▽ ▾ ▿ ◀ ◁◂◃◄◅◆◇◈◉◊○◌◍◎●◐◑◒◓
+◔◕◖◗◙◚◛◜◝◞◟◠◡
