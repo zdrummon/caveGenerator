@@ -30,7 +30,7 @@ documentation template:
 Paragraph of explanation about the topic being discussed
 
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | a
 2 | b
 3 | c
@@ -41,13 +41,13 @@ value | meaning
 # array keys
 ### global array key
 value | meaning
-|-----------|
+|-----------|-----------|
 0 | void
 
 ---
 ### movement array key
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | impassable
 2 | door
 3 | walkable
@@ -59,7 +59,7 @@ value | meaning
 ---
 ### material array key
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | rough natural stone
 2 | smooth natural stone
 3 | rough constructed stone
@@ -76,7 +76,7 @@ value | meaning
 ---
 ### visibility array key
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | opaque
 2 | semi-transparent
 3 | transparent
@@ -86,7 +86,7 @@ value | meaning
 ---
 ### lighting array key
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | dark
 2 | dim
 3 | light
@@ -97,7 +97,7 @@ value | meaning
 ---
 ### entity array key
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | player
 2 | key
 3 | badman
@@ -114,7 +114,7 @@ value | meaning
 ---
 ### bool inventory array key
 value | meaning
-|-----------|
+|-----------|-----------|
 [0]|key
 [1]|sword
 [2]|small rock
@@ -127,7 +127,7 @@ value | meaning
 ---
 ### fog of war array key
 value | meaning
-|-----------|
+|-----------|-----------|
 1 | unseen
 2 | visible
 3 | remembered
