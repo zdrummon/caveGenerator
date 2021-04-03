@@ -21,6 +21,7 @@
     5. [entity array key](#entity-array-key) - [(code)](main.cpp)
     6. [bool inventory array key](#bool-inventory-array-key) - [(code)](main.cpp)
     7. [fog of war key](#fog-of-war-key) - [(code)](main.cpp)
+    8. [graphics output ascii array key](#graphics-output-ascii-array-key) - [(code)](main.cpp)
 3. [documentation notes (unformmated)](#disordered-documentation)
 4. [caveGenerator page on Github](https://github.com/zdrummon/caveGenerator)
 

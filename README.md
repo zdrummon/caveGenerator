@@ -21,6 +21,7 @@
     5. [entity array key](designdoc.md#entity-array-key) - [(code)](main.cpp)
     6. [bool inventory array key](designdoc.md#bool-inventory-array-key) - [(code)](main.cpp)
     7. [fog of war key](designdoc.md#fog-of-war-key) - [(code)](main.cpp)
+    8. [graphics output ascii array key](designdoc.md#graphics-output-ascii-array-key) - [(code)](main.cpp)
 3. [documentation notes (unformmated)](designdoc.md#disordered-documentation)
 4. [caveGenerator page on Github](https://github.com/zdrummon/caveGenerator)
 
