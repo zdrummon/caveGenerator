@@ -19,7 +19,8 @@ namespace fs = std::experimental::filesystem;
 
 // prototypes
 vector<string> listEntry();
-bool userChoice(char);
+bool userChoice(char, int);
+void loadModule(int);
 
 
 
@@ -30,24 +31,29 @@ bool userChoice(char);
 // it's main, man!
 //================================================================
 int main() {
-
+  
   // user enters in a character corresponding to debug option
   char userInput;
-  
+  int moduleCount;
+
   // main debug loop
   do {
+    moduleCount = 0;
     cout << endl << "Welcome to the caveGenerator debug system. \nSelect a load option below: " << endl << endl;
 
     // generate list of options based on dat files in the filesystem
     for (const auto & parsedEntry : listEntry()) {
-      cout << parsedEntry << endl;
+      if (parsedEntry != "") {
+        moduleCount++;
+        cout << "[" << std::to_string(moduleCount) << "] " << parsedEntry << endl;
+      }
     }
 
     cout << endl << "You may also press Q to leave, or S to scan the system again." << endl << endl;
 
     cin >> userInput;
 
-  } while (userChoice(userInput));
+  } while (userChoice(userInput, moduleCount));
 
 
   return 0;  
@@ -73,7 +79,7 @@ vector<string> listEntry() {
   
   string datChunk;
   std::ifstream inputFile;
-  int moduleCount = 0;
+
 
   for (const auto & file : fs::directory_iterator(path)) {
 
@@ -103,13 +109,9 @@ vector<string> listEntry() {
       }
     }
 
-    parsedModule = "[" + std::to_string(moduleCount) + "] " + parsedModule;
-
     moduleList.push_back(parsedModule);
     inputFile.close();
-    moduleCount++;
   }
-
 
   // return a string vector
   return moduleList;
@@ -123,9 +125,13 @@ vector<string> listEntry() {
 //================================================================
 // loop control for debugger and open dependent module
 //================================================================
-bool userChoice(char userInput) {
+bool userChoice(char userInput, int moduleRange) {
   bool userContinue = true;
+  int userModInt = 0;
 
+  if (isdigit(userInput)) {
+    userModInt = userInput - '0';
+  }
 
   // quit here
   if (userInput == 'q' || userInput == 'Q') {
@@ -139,12 +145,14 @@ bool userChoice(char userInput) {
     cout << "Reloading..." << endl << endl << endl;
 
 
-  //__________________________________________________load program here___________
-  } else if (userInput == '1') {
+  // call module loader
+  } else if (userModInt > 0 && userModInt <= moduleRange) {
 
+    cout << endl << "you chose module " << userModInt << ", loading now... " << endl;
 
-    // NEXT STEP OF PROGRAM HERE 
+    loadModule(userModInt);
 
+    cout << "Debugger closing." << endl << endl;
     userContinue = false;
 
 
@@ -157,4 +165,19 @@ bool userChoice(char userInput) {
 
   //boolean main loop flag  
   return userContinue;
+}
+
+
+
+
+
+
+//================================================================
+// module loader
+//================================================================
+void loadModule(int moduleID) {
+
+  //filler module loading message
+  cout << "Module " << moduleID << " is under construction." << endl << endl;
+
 }
