@@ -12,17 +12,17 @@
 
 ---
 #### appendix
-1. [documentation template](designdoc.md#section-anchor)
-2. [array keys](designdoc.md#array-keys) - [(code)](main.cpp)
-    1. [movement array key](designdoc.md#movement-array-key) - [(code)](main.cpp)
-    2. [material array key](designdoc.md#material-array-key) - [(code)](main.cpp)
-    3. [visibility array key](designdoc.md#visibility-array-key) - [(code)](main.cpp)
-    4. [lighting array key](designdoc.md#lighting-array-key) - [(code)](main.cpp)
-    5. [entity array key](designdoc.md#entity-array-key) - [(code)](main.cpp)
-    6. [bool inventory array key](designdoc.md#bool-inventory-array-key) - [(code)](main.cpp)
-    7. [fog of war key](designdoc.md#fog-of-war-key) - [(code)](main.cpp)
-    8. [graphics output ascii array key](designdoc.md#graphics-output-ascii-array-key) - [(code)](main.cpp)
-3. [documentation notes (unformmated)](designdoc.md#disordered-documentation)
+1. [documentation template](documentation/designdoc.md#section-anchor)
+2. [array keys](documentation/designdoc.md#array-keys) - [(code)](main.cpp)
+    1. [movement array key](documentation/designdoc.md#movement-array-key) - [(code)](main.cpp)
+    2. [material array key](documentation/designdoc.md#material-array-key) - [(code)](main.cpp)
+    3. [visibility array key](documentation/designdoc.md#visibility-array-key) - [(code)](main.cpp)
+    4. [lighting array key](documentation/designdoc.md#lighting-array-key) - [(code)](main.cpp)
+    5. [entity array key](documentation/designdoc.md#entity-array-key) - [(code)](main.cpp)
+    6. [bool inventory array key](documentation/designdoc.md#bool-inventory-array-key) - [(code)](main.cpp)
+    7. [fog of war key](documentation/designdoc.md#fog-of-war-key) - [(code)](main.cpp)
+    8. [graphics output ascii array key](documentation/designdoc.md#graphics-output-ascii-array-key) - [(code)](main.cpp)
+3. [documentation notes (unformmated)](documentation/designdoc.md#disordered-documentation)
 4. [caveGenerator page on Github](https://github.com/zdrummon/caveGenerator)
 
 ---
