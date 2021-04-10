@@ -71,25 +71,43 @@ vector<string> listEntry() {
   string path = fs::current_path();
   path = path + "/modules";
   
-  string fileLine;
+  string datChunk;
   std::ifstream inputFile;
+  int moduleCount = 0;
 
   for (const auto & file : fs::directory_iterator(path)) {
 
     //parse file path and open modID.dat
     string modPath = file.path();
     inputFile.open(modPath + "/modID.dat");
-    string moduleDetails;
 
+    //parsed file goes in this ordered list
+    bool debugEnabled = true;
+
+    string parsedModule;
+    
     // parse file into list entry
-    while (inputFile >> fileLine) {
+    while (getline(inputFile, datChunk) && debugEnabled) {
 
-        //iomanip string operations to parse strings in the file, needs work
-        moduleDetails = moduleDetails + " " + fileLine;
+      if (datChunk == "debugEnabled=true") {
+        debugEnabled = true;
+
+      } else if (datChunk == "debugEnabled=false") {
+        debugEnabled = false;
+
+      } else if (datChunk.substr(0, datChunk.find("=", 0)) == "version") {
+        parsedModule += "version " + datChunk.substr(datChunk.find("=", 0) + 1, datChunk.length()) + ": ";
+
+      } else {
+        parsedModule += datChunk.substr(datChunk.find("=", 0) + 1, datChunk.length()) + " ";
+      }
     }
 
-    moduleList.push_back(moduleDetails);
+    parsedModule = "[" + std::to_string(moduleCount) + "] " + parsedModule;
+
+    moduleList.push_back(parsedModule);
     inputFile.close();
+    moduleCount++;
   }
 
 
@@ -124,7 +142,7 @@ bool userChoice(char userInput) {
   //__________________________________________________load program here___________
   } else if (userInput == '1') {
 
-    
+
     // todo
 
     userContinue = false;
