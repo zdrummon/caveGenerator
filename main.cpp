@@ -143,7 +143,7 @@ bool userChoice(char userInput) {
   } else if (userInput == '1') {
 
 
-    // NEXT STEP OF PROGRAM HERE
+    // NEXT STEP OF PROGRAM HERE YAY
 
     userContinue = false;
 
