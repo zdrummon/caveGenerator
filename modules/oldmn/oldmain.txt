@@ -6,21 +6,21 @@
 using namespace std;
 
 //constants declarations----------------------------------------------
-const string versionInfo = "0.0.02";
+string versionInfo = "0.0.02";
 
 //the dimensions of the arrays in total
-const int maxY = 32;
-const int maxX = 32;
+int maxY = 32;
+int maxX = 32;
 
 //the constants for room properties
-const int maxRoomCount = 10;
-const int maxRoomSize = 10;
+int maxRoomCount = 10;
+int maxRoomSize = 10;
 
 //seed of the random number generator
-const int seedForRandom = 99;
+int seedForRandom = 99;
 
 //string used for lighting and screen printing
-const string grayScale[] = { "  ","░░","▒▒","▓▓","██"};
+string grayScale[] = { "  ","░░","▒▒","▓▓","██"};
 
 //structure that explains 2d locationality
 struct rooms {  

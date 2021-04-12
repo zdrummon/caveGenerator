@@ -1,4 +1,4 @@
 debugEnabled=true
 modID=core
-version=0.0.02
-description=old main folder
+version=0.0.03
+description=base module for cave generator
